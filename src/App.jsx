@@ -5,12 +5,17 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import './css/style.scss';
+import './styles/tailwind.scss';
 
 import './charts/ChartjsConfig';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
+import UserTable from './pages/admin/User';
+import MerchantTable from './pages/admin/Merchant';
+import TerminalTable from './pages/admin/Terminal';
+import Login from './pages/auth/Login';
+import '../src/services/interceptor';
 
 function App() {
 
@@ -26,6 +31,11 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/admin/user" element={<UserTable />} />
+        <Route exact path="/admin/merchant" element={<MerchantTable />} />
+        <Route exact path="/admin/terminal" element={<TerminalTable />} />
+        <Route exact path="/auth/login" element={<Login />} />
+
       </Routes>
     </>
   );

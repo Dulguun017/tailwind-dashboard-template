@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
@@ -24,6 +24,12 @@ import Banner from '../partials/Banner';
 function Dashboard() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  
+  useEffect(() => {
+    if(!localStorage.getItem("accessToken"))
+    window.location = '/auth/login';
+  }, []); 
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -101,7 +107,7 @@ function Dashboard() {
           </div>
         </main>
 
-        <Banner />
+        {/* <Banner /> */}
 
       </div>
     </div>
